@@ -5,7 +5,7 @@
   <h2>Todo-Task Black-Board</h2>
   <div class="tasks">
     <div cdkDropListGroup>
-      <div class="container">
+      <div class="board">
         <h2>To do</h2>
         <div
           cdkDropList
@@ -33,31 +33,7 @@
         </div>
       </div>
 
-      <!-- <div class="container">
-        <h2>Doing</h2>
-
-        <div
-          cdkDropList
-          [cdkDropListData]="doing"
-          class="list"
-          (cdkDropListDropped)="drop($event)"
-        >
-          <mat-expansion-panel class="task" *ngFor="let item of doing" cdkDrag>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="task-title">
-                {{ item.title | truncate : 10}}
-              </mat-panel-title>
-              <mat-panel-description class="deadline">
-                {{ item.deadline| date: "dd/MM/yyyy" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p class="description-title">{{ item.title }}</p>
-            <p class="description">{{ item.description }}</p>
-          </mat-expansion-panel>
-        </div>
-      </div> -->
-
-      <div class="container">
+      <div class="board">
         <h2>Done</h2>
 
         <div

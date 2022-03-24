@@ -98,6 +98,7 @@ export class AppComponent implements OnInit {
   }
 
   addTask() {
+    this.simpleStorage.cleanData('taskToEdit');
     this.openConfirmModal(
       'Nova Tarefa',
       'Preencha os campos',
@@ -218,6 +219,7 @@ export class AppComponent implements OnInit {
           }
         );
       }
+      this.simpleStorage.cleanData('taskToEdit');
     }
   }
 

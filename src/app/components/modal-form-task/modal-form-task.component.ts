@@ -29,9 +29,13 @@ export class ModalFormTaskComponent implements OnInit {
     this.dateAdapter.setLocale('pt-BR');
   }
 
-  showTaskToEdit: TaskListModel | any;
+  showTaskToEdit: TaskListModel = new TaskListModel;
 
   ngOnInit(): void {
+    this.showTaskToEdit.id = null;
+    this.showTaskToEdit.title = null;
+    this.showTaskToEdit.description = null;
+    this.showTaskToEdit.deadline = null;
     let taskToEdit: TaskListModel = this.simpleStorage.getData('taskToEdit');
     if(taskToEdit != undefined) {
       this.showTaskToEdit = taskToEdit;
