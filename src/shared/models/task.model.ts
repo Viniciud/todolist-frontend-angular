@@ -5,7 +5,7 @@ export interface TaskModel {
 }
 
 export interface TaskListModel {
-  id: number;
+  id: string;
   title: string;
   description: string;
   deadline: string;

@@ -1,0 +1,50 @@
+<h2 mat-dialog-title class="atencao">{{ data.title }}</h2>
+<h4 mat-dialog-title class="subtitle">{{ data.subtitle }}</h4>
+<div mat-dialog-content class="content">
+  <form [formGroup]="formGroup" *ngIf="formGroup">
+    <div class="form">
+      <mat-form-field
+        class="formField-Title"
+        color="accent"
+        appearance="outline"
+      >
+        <mat-label>Título</mat-label>
+        <input [ngModel]="showTaskToEdit.title" formControlName="title" matInput required />
+      </mat-form-field>
+      <mat-form-field
+        class="formField-Description"
+        color="accent"
+        appearance="outline"
+      >
+        <mat-label>Descrição</mat-label>
+        <input [ngModel]="showTaskToEdit.description" formControlName="description" matInput required />
+      </mat-form-field>
+      <mat-form-field
+        class="formField-Deadline"
+        color="accent"
+        appearance="outline"
+      >
+        <mat-label>Data de Entrega</mat-label>
+        <input [ngModel]="showTaskToEdit.deadline" matInput formControlName="deadline" [matDatepicker]="picker" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="actions">
+  <button
+    mat-raised-button
+    (click)="confirmarOperacao(false)"
+    class="botao-fechar"
+  >
+    {{ data.closeButton ? data.closeButton : "Fechar" }}
+  </button>
+  <button
+    mat-raised-button
+    (click)="confirmarOperacao(true)"
+    class="botao-confirmar"
+  >
+    {{ data.confirmButton ? data.confirmButton : "Confirmar" }}
+  </button>
+</div>

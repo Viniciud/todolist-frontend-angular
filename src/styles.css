@@ -1,18 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden;}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+  background-color: #383838;
+  color: white;
+}
 
 *::-webkit-scrollbar {
-    width: 8px;
-  }
+  width: 8px;
+}
 
 *::-webkit-scrollbar-track {
-    background: transparent;
-  }
+  background: transparent;
+}
 
 *::-webkit-scrollbar-thumb {
-    background-color: gray;
-    border-radius: 2px;
-    border: 1px solid #000000;
-  }
+  background-color: gray;
+  border-radius: 2px;
+  border: 1px solid #000000;
+}
+
+.errorSnackbar {
+  background: red;
+  color: white;
+}
+
+.errorSnackbar .mat-simple-snackbar-action {
+  color: white;
+}
+
+.successSnackbar {
+  background: green;
+  color: white;
+}
+
+.successSnackbar .mat-simple-snackbar-action {
+  color: white;
+}

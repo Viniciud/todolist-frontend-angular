@@ -1,8 +1,8 @@
-<div class="toolbar">
-  <h2 class="title">Todo List</h2>
-</div>
+<!-- <div class="toolbar">
+  <h2 class="title">Todo Task-Board</h2>
+</div> -->
 <main class="task-board">
-  <h2>Gerenciamento de Tarefas</h2>
+  <h2>Todo-Task Black-Board</h2>
   <div class="tasks">
     <div cdkDropListGroup>
       <div class="container">
@@ -13,19 +13,49 @@
           class="list"
           (cdkDropListDropped)="drop($event)"
         >
-          <mat-expansion-panel *ngFor="let item of todo" cdkDrag>
+          <mat-expansion-panel class="task" *ngFor="let item of todo" cdkDrag>
             <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{ item.title }}
+              <mat-panel-title class="task-title">
+                {{ item.title | truncate: 15 }}
               </mat-panel-title>
-              <mat-panel-description>
-                {{ item.deadline }}
+
+              <mat-panel-description class="deadline">
+                {{ item.deadline | date: "dd/MM/yyyy" }}
               </mat-panel-description>
+              <div class="actions">
+                <mat-icon class="edit" (click)="editTask(item)">edit</mat-icon>
+                <mat-icon class="delete" (click)="deleteTask(item)">delete</mat-icon>
+              </div>
             </mat-expansion-panel-header>
-            <p>{{ item.description }}</p>
+            <p class="description-title">{{ item.title }}</p>
+            <p class="description">{{ item.description }}</p>
           </mat-expansion-panel>
         </div>
       </div>
+
+      <!-- <div class="container">
+        <h2>Doing</h2>
+
+        <div
+          cdkDropList
+          [cdkDropListData]="doing"
+          class="list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <mat-expansion-panel class="task" *ngFor="let item of doing" cdkDrag>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="task-title">
+                {{ item.title | truncate : 10}}
+              </mat-panel-title>
+              <mat-panel-description class="deadline">
+                {{ item.deadline| date: "dd/MM/yyyy" }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p class="description-title">{{ item.title }}</p>
+            <p class="description">{{ item.description }}</p>
+          </mat-expansion-panel>
+        </div>
+      </div> -->
 
       <div class="container">
         <h2>Done</h2>
@@ -36,16 +66,28 @@
           class="list"
           (cdkDropListDropped)="drop($event)"
         >
-          <mat-expansion-panel *ngFor="let item of done" cdkDrag>
+          <mat-expansion-panel class="task" *ngFor="let item of done" cdkDrag>
             <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{ item.title }}
+              <mat-panel-title class="task-title-completed">
+                {{ item.title | truncate: 10 }}
               </mat-panel-title>
-              <mat-panel-description>
-                {{ item.deadline }}
+              <mat-panel-description class="deadline-completed">
+                {{ item.deadline | date: "dd/MM/yyyy" }}
+                -
+                <div *ngIf="item.completedAt" class="completedAt">
+                  {{ item.completedAt| date: "dd/MM/yyyy"  }}
+                </div>
               </mat-panel-description>
+              <div class="actions">
+                <mat-icon class="delete" (click)="deleteTask(item)">delete</mat-icon>
+              </div>
             </mat-expansion-panel-header>
-            <p>{{ item.description }}</p>
+            <p class="description-title">{{ item.title }}</p>
+            <p class="description">{{ item.description }}</p>
+            <mat-divider></mat-divider>
+            <div *ngIf="item.completedAt" class="completedAt">
+              <p class="completedAt"> Completa em {{ item.completedAt | date: "dd/MM/yyyy HH:mm:ss"  }}</p>
+            </div>
           </mat-expansion-panel>
         </div>
       </div>
