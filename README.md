@@ -1,6 +1,6 @@
 # TodoFrontend
 
-### For run in your Computer
+### For run this project in your Computer
 
 - Required node: https://nodejs.org/en/download/
 - Open your project folder
